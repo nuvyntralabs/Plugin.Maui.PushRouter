@@ -12,4 +12,7 @@ public partial class ChatPage : ContentPage, IQueryAttributable
 		var thread = query.TryGetValue("thread", out var value) ? value?.ToString() : "(missing)";
 		DetailLabel.Text = $"Thread: {thread}";
 	}
+
+	async void OnBackClicked(object? sender, EventArgs e) =>
+		await Shell.Current.GoToAsync("//MainPage");
 }

@@ -11,4 +11,10 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:OrderPage}" Route="order" />
+    </FlyoutItem>
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:ChatPage}" Route="chat" />
+    </FlyoutItem>
 </Shell>

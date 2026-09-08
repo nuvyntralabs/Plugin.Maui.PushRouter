@@ -12,4 +12,7 @@ public partial class OrderPage : ContentPage, IQueryAttributable
 		var id = query.TryGetValue("id", out var value) ? value?.ToString() : "(missing)";
 		DetailLabel.Text = $"Order id: {id}";
 	}
+
+	async void OnBackClicked(object? sender, EventArgs e) =>
+		await Shell.Current.GoToAsync("//MainPage");
 }

@@ -11,5 +11,6 @@
         <Label x:Name="DetailLabel"
                Text="Waiting for query..."
                LineBreakMode="WordWrap" />
+        <Button Text="Back to inbox" Clicked="OnBackClicked" />
     </VerticalStackLayout>
 </ContentPage>
