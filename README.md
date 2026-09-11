@@ -174,18 +174,30 @@ router.Failed += (_, e) => { };
 
 ## Host app setup
 
+This plugin routes payloads. It does not register FCM / APNs tokens.
+
 ### Android
 
-- Add the Firebase / FCM SDK (or another push provider) in the host app.
-- Declare `POST_NOTIFICATIONS` on Android 13+ if you show notifications.
-- Keep `MainActivity` as `SingleTop`.
-- Put routing keys on the FCM **data** payload so they survive a tap.
+Add the Firebase / FCM SDK (or another push provider) in the host app. If the host shows notifications, declare:
+
+```xml
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+```
+
+`POST_NOTIFICATIONS` is a runtime permission on Android 13+. Keep `MainActivity` as `SingleTop`. Put routing keys on the FCM **data** payload so they survive a tap.
 
 ### iOS
 
-- Enable Push Notifications and the `remote-notification` background mode.
-- Add `aps-environment` in entitlements for device builds.
-- Custom keys belong next to `aps`, not inside it.
+No usage string. Enable Push Notifications and add to `Info.plist` / entitlements:
+
+```xml
+<key>UIBackgroundModes</key>
+<array>
+	<string>remote-notification</string>
+</array>
+```
+
+Add `aps-environment` in entitlements for device builds. Custom keys belong next to `aps`, not inside it.
 
 ## Sample
 
